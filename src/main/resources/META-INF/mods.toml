@@ -1,0 +1,88 @@
+
+
+modLoader="javafml"
+loaderVersion="[40,)"
+
+license="GPLv3"
+
+[[mods]]
+modId="modestflintoverhaul"
+version="${file.jarVersion}"
+displayName="Modest flint overhaul"
+authors="MoonFather"
+
+displayURL="https://www.curseforge.com/minecraft/mc-mods/modest-flint-overhaul"
+issueTrackerURL="https://www.curseforge.com/minecraft/mc-mods/modest-flint-overhaul/issues"
+
+description='''Simple change to how you obtain flint: 
+
+When you dig through gravel now, you might get some flint (odds much greater than without the mod) in addition to gravel. Or you won't get any.
+
+But... that pile of gravel is now marked as searched - digging through it again and again and again will give you nothing. Because you searched through it already. Logical.'''
+
+[[dependencies.modestflintoverhaul]]
+    modId="forge" #mandatory
+    mandatory=true #mandatory
+    versionRange="[40,)" #mandatory
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.modestflintoverhaul]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18.2,1.19)"
+    ordering="NONE"
+    side="BOTH"
+
+
+[[dependencies.modestflintoverhaul]]
+    modId="tconstruct"
+    mandatory=false
+    versionRange="[0,]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.modestflintoverhaul]]
+    modId="create"
+    mandatory=false
+    versionRange="[0,]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.modestflintoverhaul]]
+    modId="thermal"
+    mandatory=false
+    versionRange="[0,]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.modestflintoverhaul]]
+    modId="thermal_expansion"
+    mandatory=false
+    versionRange="[0,]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.modestflintoverhaul]]
+    modId="immersiveengineering"
+    mandatory=false
+    versionRange="[0,]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.modestflintoverhaul]]
+    modId="botania"
+    mandatory=false
+    versionRange="[0,]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.modestflintoverhaul]]
+    modId="mekanism"
+    mandatory=false
+    versionRange="[0,]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.modestflintoverhaul]]
+    modId="quark"
+    mandatory=false
+    versionRange="[0,]"
+    ordering="AFTER"
+    side="BOTH"
+
+[modproperties.modestflintoverhaul]
+    catalogueImageIcon="minecraft:flint.png"
+    configuredBackground="minecraft:textures/block/gravel.png"

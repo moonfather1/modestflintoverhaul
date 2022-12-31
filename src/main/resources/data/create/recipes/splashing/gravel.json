@@ -1,0 +1,14 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "tag": "forge:gravel_with_no_flint"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:iron_nugget",
+      "chance": 0.125
+    }
+  ]
+}

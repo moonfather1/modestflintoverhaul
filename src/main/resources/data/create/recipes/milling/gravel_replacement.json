@@ -1,0 +1,21 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "tag": "forge:gravel_with_maybe_flint"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:flint",
+      "chance": 0.15 
+    }
+  ],
+  "processingTime": 250,
+  "conditions": [
+    {
+      "modid": "create",
+      "type": "forge:mod_loaded"
+    }
+  ]  
+}

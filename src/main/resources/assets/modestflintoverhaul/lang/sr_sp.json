@@ -1,0 +1,9 @@
+{
+	"item.modestflintoverhaul.gravel_unsearched": "Шљунак",
+	"block.modestflintoverhaul.gravel_searched": "Шљунак",
+
+	"item.modestflintoverhaul.gravel_unsearched.tooltip1": "Није детаљно претражен.",
+	"item.modestflintoverhaul.gravel_unsearched.tooltip2": "Можда ћете наћи покоји комад кремена.",
+	"item.modestflintoverhaul.gravel_searched.tooltip1": "Већ смо покупили кремен и друге ствари.",
+	"item.modestflintoverhaul.gravel_searched.tooltip2": "У овој гомили нећете наћи ништа корисно."
+}

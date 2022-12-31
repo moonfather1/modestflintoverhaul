@@ -1,0 +1,28 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "tag": "forge:gravel_with_maybe_flint"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:sand"
+    },
+    {
+      "item": "minecraft:flint",
+      "chance": 0.15
+    },
+    {
+      "item": "minecraft:clay_ball",
+      "chance": 0.05
+    }
+  ],
+  "processingTime": 250,
+  "conditions": [
+    {
+      "modid": "create",
+      "type": "forge:mod_loaded"
+    }
+  ] 
+}
