@@ -1,6 +1,7 @@
 package moonfather.modestflintoverhaul;
 
 import com.mojang.logging.LogUtils;
+import moonfather.modestflintoverhaul.items.EventForCreativeInventory;
 import moonfather.modestflintoverhaul.other.GravelDispenseBehavior;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -20,6 +21,7 @@ public class ModMFO
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, OptionsHolder.COMMON_SPEC);
         RegistryManager.Init();
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(EventForCreativeInventory::OnCreativeModeTab);
     }
 
     private void setup(final FMLCommonSetupEvent event)

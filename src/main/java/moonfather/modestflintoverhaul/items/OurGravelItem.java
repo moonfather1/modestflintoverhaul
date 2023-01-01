@@ -31,7 +31,6 @@ public class OurGravelItem extends Item
 	private static Properties GetProperties()
 	{
 		Properties properties = new Properties();
-		properties.tab(CreativeModeTab.TAB_BUILDING_BLOCKS);
 		return properties;
 	}
 

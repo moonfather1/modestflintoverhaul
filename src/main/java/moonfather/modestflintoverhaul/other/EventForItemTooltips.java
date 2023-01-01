@@ -3,7 +3,6 @@ package moonfather.modestflintoverhaul.other;
 import moonfather.modestflintoverhaul.RegistryManager;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -27,8 +26,8 @@ public class EventForItemTooltips
         }
     }
 
-    private static final Component mayHaveFlint1 = new TranslatableComponent("item.modestflintoverhaul.gravel_unsearched.tooltip1").withStyle(Style.EMPTY.withColor(0x9e7b4d));
-    private static final Component mayHaveFlint2 = new TranslatableComponent("item.modestflintoverhaul.gravel_unsearched.tooltip2").withStyle(Style.EMPTY.withColor(0x9e7b4d));
-    private static final Component wontHaveFlint1 = new TranslatableComponent("item.modestflintoverhaul.gravel_searched.tooltip1").withStyle(Style.EMPTY.withColor(0x9e7b4d));
-    private static final Component wontHaveFlint2 = new TranslatableComponent("item.modestflintoverhaul.gravel_searched.tooltip2").withStyle(Style.EMPTY.withColor(0x9e7b4d));
+    private static final Component mayHaveFlint1 = Component.translatable("item.modestflintoverhaul.gravel_unsearched.tooltip1").withStyle(Style.EMPTY.withColor(0x9e7b4d));
+    private static final Component mayHaveFlint2 = Component.translatable("item.modestflintoverhaul.gravel_unsearched.tooltip2").withStyle(Style.EMPTY.withColor(0x9e7b4d));
+    private static final Component wontHaveFlint1 = Component.translatable("item.modestflintoverhaul.gravel_searched.tooltip1"). withStyle(Style.EMPTY.withColor(0x9e7b4d));
+    private static final Component wontHaveFlint2 = Component.translatable("item.modestflintoverhaul.gravel_searched.tooltip2").withStyle(Style.EMPTY.withColor(0x9e7b4d));
 }

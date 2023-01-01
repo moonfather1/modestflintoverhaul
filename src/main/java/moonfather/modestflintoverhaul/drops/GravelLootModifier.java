@@ -1,10 +1,12 @@
 package moonfather.modestflintoverhaul.drops;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
+import com.google.common.base.Suppliers;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import moonfather.modestflintoverhaul.OptionsHolder;
 import moonfather.modestflintoverhaul.RegistryManager;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -13,13 +15,12 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
+import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootModifier;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
 import java.util.ListIterator;
-import java.util.Random;
+import java.util.function.Supplier;
 
 public class GravelLootModifier extends LootModifier
 {
@@ -31,7 +32,7 @@ public class GravelLootModifier extends LootModifier
 
     @NotNull
     @Override
-    protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context)
+    public ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context)
     {
         if (context.getQueriedLootTableId().equals(Blocks.GRAVEL.getLootTable()))
         {
@@ -93,7 +94,7 @@ public class GravelLootModifier extends LootModifier
 
     ///////////////////////////////////////////////////////////
 
-    private int GetCountToDrop(Random random, int howManyWeExpectPer10Gravel)
+    private int GetCountToDrop(RandomSource random, int howManyWeExpectPer10Gravel)
     {
         if (howManyWeExpectPer10Gravel < 10)
         {
@@ -150,20 +151,13 @@ public class GravelLootModifier extends LootModifier
 
     ///////////////////////////////////////////////////////////
 
-    public static class Serializer extends GlobalLootModifierSerializer<GravelLootModifier>
-    {
-        @Override
-        public GravelLootModifier read(ResourceLocation name, JsonObject json, LootItemCondition[] conditionsIn)
-        {
-            return new GravelLootModifier(conditionsIn);
-        }
-
-        @Override
-        public JsonObject write(GravelLootModifier dropsModifier)
-        {
-            JsonObject result = new JsonObject();
-            result.add("conditions", new JsonArray());
-            return result;
-        }
+    @Override
+    public Codec<? extends IGlobalLootModifier> codec() {
+        return CODEC.get();
     }
+
+    public static final Supplier<Codec<GravelLootModifier>> CODEC = Suppliers.memoize(() ->
+            RecordCodecBuilder.create(inst -> codecStart(inst)
+                    .apply(inst, GravelLootModifier::new)));
+
 }

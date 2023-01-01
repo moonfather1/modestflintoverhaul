@@ -3,7 +3,6 @@ package moonfather.modestflintoverhaul.other;
 import moonfather.modestflintoverhaul.RegistryManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -26,10 +25,10 @@ public class EventForPlacingGravel
             {
                 event.setUseItem(Event.Result.DENY);
                 event.setUseBlock(Event.Result.DENY);
-                if (EventForPlacingGravel.CanPlace(event.getWorld(), destination))
+                if (EventForPlacingGravel.CanPlace(event.getLevel(), destination))
                 {
                     event.getEntity().getLevel().setBlockAndUpdate(destination, RegistryManager.BlockGravelSearched.get().defaultBlockState());
-                    if (!event.getWorld().isClientSide() && !event.getPlayer().isCreative())
+                    if (!event.getLevel().isClientSide() && !event.getEntity().isCreative())
                     {
                         event.getItemStack().shrink(1);
                     }
@@ -38,15 +37,15 @@ public class EventForPlacingGravel
             else
             {
                 event.setUseItem(Event.Result.DENY);
-                BlockState targetState = event.getWorld().getBlockState(event.getPos());
-                InteractionResult result = targetState.getBlock().use(targetState, event.getWorld(), event.getPos(), event.getPlayer(), event.getHand(), event.getHitVec());
+                BlockState targetState = event.getLevel().getBlockState(event.getPos());
+                InteractionResult result = targetState.getBlock().use(targetState, event.getLevel(), event.getPos(), event.getEntity(), event.getHand(), event.getHitVec());
                 event.setUseBlock(Event.Result.DENY);
                 if (result.equals(InteractionResult.PASS))
                 {
-                    if (EventForPlacingGravel.CanPlace(event.getWorld(), destination))
+                    if (EventForPlacingGravel.CanPlace(event.getLevel(), destination))
                     {
                         event.getEntity().getLevel().setBlockAndUpdate(destination, RegistryManager.BlockGravelSearched.get().defaultBlockState());
-                        if (!event.getWorld().isClientSide() && !event.getPlayer().isCreative())
+                        if (!event.getLevel().isClientSide() && !event.getEntity().isCreative())
                         {
                             event.getItemStack().shrink(1);
                         }

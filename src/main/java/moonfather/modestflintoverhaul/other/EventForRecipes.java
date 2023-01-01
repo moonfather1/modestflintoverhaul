@@ -2,10 +2,12 @@ package moonfather.modestflintoverhaul.other;
 
 import moonfather.modestflintoverhaul.RegistryManager;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.packs.resources.PreparableReloadListener;
 import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.item.Item;
@@ -28,7 +30,7 @@ import java.util.concurrent.Executor;
 @Mod.EventBusSubscriber
 public class EventForRecipes
 {
-    public static final TagKey<Item> GravelTag = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation("forge:gravel"));
+    public static final TagKey<Item> GravelTag = TagKey.create(Registries.ITEM, new ResourceLocation("forge:gravel"));
 
     @SubscribeEvent
     public static void OnServerStarting(ServerStartingEvent event)

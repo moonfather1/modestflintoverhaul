@@ -1,7 +1,7 @@
 
 
 modLoader="javafml"
-loaderVersion="[40,)"
+loaderVersion="[44,)"
 
 license="GPLv3"
 
@@ -23,13 +23,13 @@ But... that pile of gravel is now marked as searched - digging through it again 
 [[dependencies.modestflintoverhaul]]
     modId="forge" #mandatory
     mandatory=true #mandatory
-    versionRange="[40,)" #mandatory
+    versionRange="[44,)" #mandatory
     ordering="NONE"
     side="BOTH"
 [[dependencies.modestflintoverhaul]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18.2,1.19)"
+    versionRange="[1.19.3,1.20)"
     ordering="NONE"
     side="BOTH"
 

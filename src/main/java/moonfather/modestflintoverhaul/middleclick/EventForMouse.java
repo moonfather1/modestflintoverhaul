@@ -20,7 +20,7 @@ import net.minecraftforge.fml.common.Mod;
 public class EventForMouse
 {
     @SubscribeEvent
-    public static void OnClickInput(InputEvent.ClickInputEvent event)
+    public static void OnClickInput(InputEvent.InteractionKeyMappingTriggered event)
     {
         if (event.isPickBlock())
         {

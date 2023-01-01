@@ -23,7 +23,7 @@ public class OurGravelBlock extends GravelBlock
 
     public static Item.Properties GetItemProperties()
     {
-        return new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS);
+        return new Item.Properties();
     }
 
 
