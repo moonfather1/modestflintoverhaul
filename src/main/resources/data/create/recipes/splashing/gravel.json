@@ -10,5 +10,11 @@
       "item": "minecraft:iron_nugget",
       "chance": 0.125
     }
-  ]
+  ],
+  "conditions": [
+    {
+      "modid": "create",
+      "type": "forge:mod_loaded"
+    }
+  ]  
 }

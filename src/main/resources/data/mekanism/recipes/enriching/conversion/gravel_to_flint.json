@@ -1,1 +1,11 @@
-{"type":"mekanism:enriching","input":{"ingredient":{"tag":"modestflintoverhaul:gravel_unsearched"}},"output":{"item":"minecraft:flint"}}
+{
+	"type":"mekanism:enriching",
+	"input":{"ingredient":{"tag":"modestflintoverhaul:gravel_unsearched"}},
+	"output":{"item":"minecraft:flint"},
+	"conditions": [
+    {
+      "modid": "mekanism",
+      "type": "forge:mod_loaded"
+    }
+	]  
+}
