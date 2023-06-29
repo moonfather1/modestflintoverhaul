@@ -3,7 +3,7 @@
 modLoader="javafml"
 loaderVersion="[40,)"
 
-license="GPLv3"
+license="MIT"
 
 [[mods]]
 modId="modestflintoverhaul"
