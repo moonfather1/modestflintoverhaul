@@ -2,13 +2,13 @@ package moonfather.modestflintoverhaul.items;
 
 import moonfather.modestflintoverhaul.RegistryManager;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 
 public class EventForCreativeInventory
 {
-    public static void OnCreativeModeTab(CreativeModeTabEvent.BuildContents event)
+    public static void OnCreativeModeTab(BuildCreativeModeTabContentsEvent event)
     {
-        if (event.getTab() == CreativeModeTabs.NATURAL_BLOCKS)
+        if (event.getTabKey().equals(CreativeModeTabs.NATURAL_BLOCKS))
         {
             event.accept(RegistryManager.ItemGravelUnsearched.get());
         }

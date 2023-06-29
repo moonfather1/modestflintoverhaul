@@ -38,7 +38,7 @@ public class GravelDispenseBehavior extends OptionalDispenseItemBehavior
         Level level = source.getLevel();
         BlockPos pos = source.getPos().relative(source.getBlockState().getValue(DispenserBlock.FACING));
         BlockState state = level.getBlockState(pos);
-        if (state.isAir() || state.getMaterial().isReplaceable())
+        if (state.isAir() || state.canBeReplaced())
         {
             this.setSuccess(true);
             level.setBlockAndUpdate(pos, this.blockToPlace.defaultBlockState());

@@ -2,6 +2,8 @@ package moonfather.modestflintoverhaul;
 
 import com.mojang.serialization.Codec;
 import moonfather.modestflintoverhaul.drops.GravelLootModifier;
+import moonfather.modestflintoverhaul.falling_onto_trapdoors.ElusiveGravelBlock;
+import moonfather.modestflintoverhaul.falling_onto_trapdoors.FleetingGravelBlock;
 import moonfather.modestflintoverhaul.items.OurGravelBlock;
 import moonfather.modestflintoverhaul.items.OurGravelItem;
 import net.minecraft.world.item.Item;
@@ -25,10 +27,13 @@ public class RegistryManager
 		RegistryManager.LOOT_MODIFIERS.register(FMLJavaModLoadingContext.get().getModEventBus());
 	}
 
-	public static final RegistryObject<Item> ItemGravelUnsearched = ITEMS.register("gravel_unsearched", () -> new OurGravelItem());
+	public static final RegistryObject<Item> ItemGravelUnsearched = ITEMS.register("gravel_unsearched", OurGravelItem::new);
 
-	public static final RegistryObject<Block> BlockGravelSearched = BLOCKS.register("gravel_searched", () -> new OurGravelBlock());
+	public static final RegistryObject<Block> BlockGravelSearched = BLOCKS.register("gravel_searched", OurGravelBlock::new);
 	//public static final RegistryObject<Item> ItemBlockGravelSearched = ITEMS.register("gravel_searched", () -> BlockItemEx.Create(BlockGravelSearched.get(), GravelBlock.GetItemProperties()).AppendTooltipLine(GravelBlock.TooltipLine1));
+
+	public static final RegistryObject<Block> BlockGravelFleeting = BLOCKS.register("gravel_temporary1", FleetingGravelBlock::new);
+	public static final RegistryObject<Block> BlockGravelElusive = BLOCKS.register("gravel_temporary2", ElusiveGravelBlock::new);
 
 	public static final RegistryObject<Codec<? extends IGlobalLootModifier>> StupidGLMSerializer1 = LOOT_MODIFIERS.register("loot_modifier_for_gravel", GravelLootModifier.CODEC);
 }
