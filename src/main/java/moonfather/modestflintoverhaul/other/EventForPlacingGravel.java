@@ -27,7 +27,7 @@ public class EventForPlacingGravel
                 event.setUseBlock(Event.Result.DENY);
                 event.setCancellationResult(InteractionResult.sidedSuccess(event.getLevel().isClientSide()));
                 event.setCanceled(true); // without this we get double use() calls
-                if (EventForPlacingGravel.CanPlace(event.getLevel(), destination))       // out thing
+                if (EventForPlacingGravel.CanPlace(event.getLevel(), destination))       // our thing
                 {
                     event.getEntity().level().setBlockAndUpdate(destination, RegistryManager.BlockGravelSearched.get().defaultBlockState());
                     if (!event.getLevel().isClientSide() && !event.getEntity().isCreative())
@@ -44,7 +44,7 @@ public class EventForPlacingGravel
                 event.setUseBlock(Event.Result.DENY);
                 event.setCancellationResult(InteractionResult.sidedSuccess(event.getLevel().isClientSide()));
                 event.setCanceled(true); // without this we get double use() calls
-                if (result.equals(InteractionResult.PASS))     // out thing
+                if (result.equals(InteractionResult.PASS))     // our thing
                 {
                     if (EventForPlacingGravel.CanPlace(event.getLevel(), destination))
                     {
