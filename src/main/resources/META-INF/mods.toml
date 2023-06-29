@@ -62,3 +62,57 @@ description='''${mod_description}'''
     versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
+
+
+[[dependencies.modestflintoverhaul]]
+    modId="tconstruct"
+    mandatory=false
+    versionRange="[0,]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.modestflintoverhaul]]
+    modId="create"
+    mandatory=false
+    versionRange="[0,]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.modestflintoverhaul]]
+    modId="thermal"
+    mandatory=false
+    versionRange="[0,]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.modestflintoverhaul]]
+    modId="thermal_expansion"
+    mandatory=false
+    versionRange="[0,]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.modestflintoverhaul]]
+    modId="immersiveengineering"
+    mandatory=false
+    versionRange="[0,]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.modestflintoverhaul]]
+    modId="botania"
+    mandatory=false
+    versionRange="[0,]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.modestflintoverhaul]]
+    modId="mekanism"
+    mandatory=false
+    versionRange="[0,]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.modestflintoverhaul]]
+    modId="quark"
+    mandatory=false
+    versionRange="[0,]"
+    ordering="AFTER"
+    side="BOTH"
+
+[modproperties.modestflintoverhaul]
+    catalogueImageIcon="minecraft:flint.png"
+    configuredBackground="minecraft:textures/block/gravel.png"
