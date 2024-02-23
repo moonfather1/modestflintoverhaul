@@ -1,0 +1,23 @@
+{
+  "type": "thermal:smelter",
+  "ingredient": {
+    "tag": "c:gravel_with_maybe_flint"
+  },
+  "result": [
+    {
+      "item": "minecraft:flint",
+      "chance": 0.15
+    },
+    {
+      "item": "thermal:slag",
+      "count": 1
+    }
+  ],
+  "experience": 0.5,
+  "neoforge:conditions": [
+    {
+      "modid": "thermal_expansion",
+      "type": "neoforge:mod_loaded"
+    }
+  ] 
+}

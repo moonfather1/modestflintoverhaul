@@ -1,0 +1,9 @@
+{
+	"item.modestflintoverhaul.gravel_unsearched": "Gravel",
+	"block.modestflintoverhaul.gravel_searched": "Gravel",
+
+	"item.modestflintoverhaul.gravel_unsearched.tooltip1": "Not searched thoroughly.",
+	"item.modestflintoverhaul.gravel_unsearched.tooltip2": "You might find a flint piece or two.",
+	"item.modestflintoverhaul.gravel_searched.tooltip1": "Already searched for flint and other stuff.",
+	"item.modestflintoverhaul.gravel_searched.tooltip2": "You will not find anything useful in this pile."
+}

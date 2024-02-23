@@ -1,0 +1,18 @@
+{
+  "type": "thermal:pulverizer",
+  "ingredient": {
+    "tag": "c:gravel_with_no_flint"
+  },
+  "result": [
+    {
+      "item": "minecraft:sand"
+    }
+  ],
+  "experience": 0.5,
+  "neoforge:conditions": [
+    {
+      "modid": "thermal",
+      "type": "neoforge:mod_loaded"
+    }
+  ] 
+}

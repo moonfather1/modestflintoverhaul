@@ -1,0 +1,24 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "tag": "c:gravel_with_maybe_flint"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:flint",
+      "chance": 0.25
+    },
+    {
+      "item": "minecraft:iron_nugget",
+      "chance": 0.125
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "modid": "create",
+      "type": "neoforge:mod_loaded"
+    }
+  ]  
+}

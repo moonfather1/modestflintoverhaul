@@ -1,0 +1,11 @@
+{
+	"type":"mekanism:enriching",
+	"input":{"ingredient":{"item":"modestflintoverhaul:gravel_unsearched"}},
+	"output":{"item":"minecraft:flint"},
+	"neoforge:conditions": [
+    {
+      "modid": "mekanism",
+      "type": "neoforge:mod_loaded"
+    }
+	]  
+}
