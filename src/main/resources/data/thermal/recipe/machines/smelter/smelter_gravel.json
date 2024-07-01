@@ -1,0 +1,19 @@
+{
+  "type": "thermal:smelter",
+  "ingredient": {
+    "tag": "modestflintoverhaul:gravel_with_no_flint"
+  },
+  "result": [
+    {
+      "id": "thermal:slag",
+      "count": 1
+    }
+  ],
+  "experience": 0.5,
+  "neoforge:conditions": [
+    {
+      "modid": "thermal_expansion",
+      "type": "neoforge:mod_loaded"
+    }
+  ] 
+}

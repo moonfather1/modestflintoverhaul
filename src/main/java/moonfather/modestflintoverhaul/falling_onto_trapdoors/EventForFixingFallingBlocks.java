@@ -4,10 +4,10 @@ import moonfather.modestflintoverhaul.RegistryManager;
 import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 
-@Mod.EventBusSubscriber
+@EventBusSubscriber
 public class EventForFixingFallingBlocks {
     @SubscribeEvent
     public static void OnEntityJoinLevel(EntityJoinLevelEvent event)

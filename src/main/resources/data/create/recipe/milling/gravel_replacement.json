@@ -1,0 +1,21 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "tag": "modestflintoverhaul:gravel_with_maybe_flint"
+    }
+  ],
+  "results": [
+    {
+      "id": "minecraft:flint",
+      "chance": 0.15 
+    }
+  ],
+  "processingTime": 250,
+  "neoforge:conditions": [
+    {
+      "modid": "create",
+      "type": "neoforge:mod_loaded"
+    }
+  ]  
+}

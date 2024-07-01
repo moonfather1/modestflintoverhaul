@@ -1,0 +1,17 @@
+{
+	"type":"immersiveengineering:crusher",
+	"secondaries":
+	[
+	
+	],
+	"result":{"id":"minecraft:sand"},
+	"input":{"tag":"modestflintoverhaul:gravel_with_no_flint"},
+	"energy":1600
+  ,
+  "neoforge:conditions": [
+    {
+      "modid": "immersiveengineering",
+      "type": "neoforge:mod_loaded"
+    }
+  ]
+}

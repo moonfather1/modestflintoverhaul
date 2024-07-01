@@ -1,0 +1,8 @@
+{
+	"replace":false,
+	"values":
+	[
+		"minecraft:gravel",
+		{ "id": "immersiveengineering:slag_gravel", "required": false } 
+	]
+}

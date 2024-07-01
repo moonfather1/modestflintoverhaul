@@ -1,0 +1,31 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "tag": "modestflintoverhaul:gravel_with_maybe_flint"
+    }
+  ],
+  "tool": {
+    "type": "farmersdelight:tool_action",
+    "action": "shovel_dig"
+  },
+  "result": [
+    {
+      "id": "minecraft:gravel"
+    },
+    {
+      "id": "minecraft:flint",
+      "chance": 0.25
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "modid": "farmersdelight",
+      "type": "neoforge:mod_loaded"
+    },
+    {
+      "type": "neoforge:false"
+    }
+
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "tag": "modestflintoverhaul:gravel_with_maybe_flint"
+    }
+  ],
+  "results": [
+    {
+      "id": "minecraft:sand"
+    },
+    {
+      "id": "minecraft:flint",
+      "chance": 0.15
+    },
+    {
+      "id": "minecraft:clay_ball",
+      "chance": 0.05
+    }
+  ],
+  "processingTime": 250,
+  "neoforge:conditions": [
+    {
+      "modid": "create",
+      "type": "neoforge:mod_loaded"
+    }
+  ] 
+}

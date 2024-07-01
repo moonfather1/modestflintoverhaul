@@ -2,13 +2,18 @@ package moonfather.modestflintoverhaul.drops;
 
 import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import moonfather.modestflintoverhaul.ConfigManager;
 import moonfather.modestflintoverhaul.RegistryManager;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Blocks;
@@ -34,7 +39,7 @@ public class GravelLootModifier extends LootModifier
     @Override
     public ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context)
     {
-        if (context.getQueriedLootTableId().equals(Blocks.GRAVEL.getLootTable()))
+        if (context.getQueriedLootTableId().equals(Blocks.GRAVEL.getLootTable().location()))
         {
             ListIterator<ItemStack> i = generatedLoot.listIterator();
             while (i.hasNext())
@@ -50,7 +55,12 @@ public class GravelLootModifier extends LootModifier
                 }
             }
             ItemStack ctxTool = context.getParamOrNull(LootContextParams.TOOL);
-            boolean silkTouch = ctxTool != null && EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, ctxTool) > 0;
+            boolean silkTouch = false;
+            if (ctxTool != null)
+            {
+                Holder<Enchantment> enchantment = context.getLevel().registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.SILK_TOUCH);
+                silkTouch = EnchantmentHelper.getItemEnchantmentLevel(enchantment, ctxTool) > 0;
+            }
             if (silkTouch)
             {
                 generatedLoot.add(RegistryManager.ItemGravelUnsearched.get().getDefaultInstance());
@@ -58,7 +68,8 @@ public class GravelLootModifier extends LootModifier
             else
             {
                 generatedLoot.add(new ItemStack(Blocks.GRAVEL));
-                int fortune = ctxTool != null ? EnchantmentHelper.getItemEnchantmentLevel(Enchantments.BLOCK_FORTUNE, ctxTool) : 0;
+                Holder<Enchantment> enchantment = context.getLevel().registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE);
+                int fortune = ctxTool != null ? EnchantmentHelper.getItemEnchantmentLevel(enchantment, ctxTool) : 0;
                 int howManyWeExpectPer10Gravel = (ConfigManager.BaseDropChance + ConfigManager.GetFortuneBonus(fortune)) / 10;
                 int count = GetCountToDrop(context.getRandom(), howManyWeExpectPer10Gravel);
                 ////System.out.println("~~~supposed to drop " + howManyWeExpectPer10Gravel + " flint per 10 gravel, dropping " + count + ".");
@@ -152,12 +163,12 @@ public class GravelLootModifier extends LootModifier
     ///////////////////////////////////////////////////////////
 
     @Override
-    public Codec<? extends IGlobalLootModifier> codec() {
+    public MapCodec<? extends IGlobalLootModifier> codec() {
         return CODEC.get();
     }
 
-    public static final Supplier<Codec<GravelLootModifier>> CODEC = Suppliers.memoize(() ->
-            RecordCodecBuilder.create(inst -> codecStart(inst)
+    public static final Supplier<MapCodec<GravelLootModifier>> CODEC = Suppliers.memoize(() ->
+            RecordCodecBuilder.mapCodec(inst -> codecStart(inst)
                     .apply(inst, GravelLootModifier::new)));
 
 }

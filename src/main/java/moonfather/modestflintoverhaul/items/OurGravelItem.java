@@ -61,7 +61,7 @@ public class OurGravelItem extends Item
 					}
 					level.gameEvent(player, GameEvent.BLOCK_PLACE, blockpos);
 					SoundType soundtype = blockstate1.getSoundType(level, blockpos, blockplacecontext.getPlayer());
-					level.playSound(player, blockpos, this.getPlaceSound(blockstate1), SoundSource.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
+					level.playSound(player, blockpos, Blocks.GRAVEL.getSoundType(blockstate1, level, blockpos, null).getPlaceSound(), SoundSource.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
 					if (player == null || !player.getAbilities().instabuild) {
 						itemstack.shrink(1);
 					}
@@ -80,11 +80,6 @@ public class OurGravelItem extends Item
 		Player player = p_40611_.getPlayer();
 		CollisionContext collisioncontext = player == null ? CollisionContext.empty() : CollisionContext.of(player);
 		return (p_40612_.canSurvive(p_40611_.getLevel(), p_40611_.getClickedPos())) && p_40611_.getLevel().isUnobstructed(p_40612_, p_40611_.getClickedPos(), collisioncontext);
-	}
-
-	private SoundEvent getPlaceSound(BlockState blockstate1)
-	{
-		return Blocks.GRAVEL.getSoundType(blockstate1).getPlaceSound();
 	}
 
 	protected boolean placeBlock(BlockPlaceContext p_40578_, BlockState p_40579_) {

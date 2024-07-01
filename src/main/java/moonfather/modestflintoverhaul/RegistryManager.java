@@ -1,6 +1,6 @@
 package moonfather.modestflintoverhaul;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import moonfather.modestflintoverhaul.drops.GravelLootModifier;
 import moonfather.modestflintoverhaul.falling_onto_trapdoors.ElusiveGravelBlock;
 import moonfather.modestflintoverhaul.falling_onto_trapdoors.FleetingGravelBlock;
@@ -10,7 +10,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -22,7 +21,7 @@ public class RegistryManager
 {
 	private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(BuiltInRegistries.ITEM, Constants.MODID);
 	private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(BuiltInRegistries.BLOCK, Constants.MODID);
-	private static final DeferredRegister<Codec<? extends IGlobalLootModifier>> LOOT_MODIFIERS = DeferredRegister.create(NeoForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, Constants.MODID);
+	private static final DeferredRegister<MapCodec<? extends IGlobalLootModifier>> LOOT_MODIFIERS = DeferredRegister.create(NeoForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, Constants.MODID);
 
 	public static void Init(IEventBus modEventBus)
 	{
@@ -39,5 +38,5 @@ public class RegistryManager
 	public static final DeferredHolder<Block, Block> BlockGravelFleeting = BLOCKS.register("gravel_temporary1", FleetingGravelBlock::new);
 	public static final DeferredHolder<Block, Block> BlockGravelElusive = BLOCKS.register("gravel_temporary2", ElusiveGravelBlock::new);
 
-	public static final Supplier<Codec<? extends IGlobalLootModifier>> StupidGLMSerializer1 = LOOT_MODIFIERS.register("loot_modifier_for_gravel", GravelLootModifier.CODEC);
+	public static final Supplier<MapCodec<? extends IGlobalLootModifier>> StupidGLMSerializer1 = LOOT_MODIFIERS.register("loot_modifier_for_gravel", GravelLootModifier.CODEC);
 }

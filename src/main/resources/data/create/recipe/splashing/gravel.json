@@ -1,0 +1,20 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "tag": "modestflintoverhaul:gravel_with_no_flint"
+    }
+  ],
+  "results": [
+    {
+      "id": "minecraft:iron_nugget",
+      "chance": 0.125
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "modid": "create",
+      "type": "neoforge:mod_loaded"
+    }
+  ]  
+}

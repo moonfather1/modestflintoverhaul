@@ -38,9 +38,9 @@ public class BlockItemEx extends BlockItem
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> lines, TooltipFlag flags)
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flags)
     {
-        super.appendHoverText(stack, level, lines, flags);
+        super.appendHoverText(stack, context, lines, flags);
         if (line1 != null)
         {
             lines.add(line1);
