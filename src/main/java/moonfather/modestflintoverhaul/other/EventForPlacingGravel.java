@@ -2,9 +2,11 @@ package moonfather.modestflintoverhaul.other;
 
 import moonfather.modestflintoverhaul.RegistryManager;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.neoforged.bus.api.Event;
@@ -54,6 +56,8 @@ public class EventForPlacingGravel
                         {
                             event.getItemStack().shrink(1);
                         }
+                        SoundType soundType = Blocks.GRAVEL.getSoundType(Blocks.GRAVEL.defaultBlockState(), event.getEntity().level(), destination, null);
+                        event.getEntity().level().playSound(event.getEntity(), destination, soundType.getPlaceSound(), SoundSource.BLOCKS, (soundType.getVolume() + 1.0F) / 2.0F, soundType.getPitch() * 0.8F);
                         event.setCanceled(true);
                     }
                 }
