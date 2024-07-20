@@ -3,9 +3,9 @@
 	"input":{"ingredient":{"tag":"modestflintoverhaul:gravel_unsearched"}},
 	"output":{"item":"minecraft:flint"},
 	"conditions": [
-    {
-      "modid": "mekanism",
-      "type": "forge:mod_loaded"
-    }
+		{
+			"type": "forge:mod_loaded",
+			"modid": "mekanism"
+		}
 	]  
 }
