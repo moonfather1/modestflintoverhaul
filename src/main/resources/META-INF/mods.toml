@@ -13,7 +13,7 @@ authors="MoonFather"
 
 displayURL="https://www.curseforge.com/minecraft/mc-mods/modest-flint-overhaul"
 issueTrackerURL="https://www.curseforge.com/minecraft/mc-mods/modest-flint-overhaul/issues"
-
+updateJSONURL="https://api.modrinth.com/updates/e6kJD5QB/forge_updates.json" #optional
 description='''Simple change to how you obtain flint: 
 
 When you dig through gravel now, you might get some flint (odds much greater than without the mod) in addition to gravel. Or you won't get any.
