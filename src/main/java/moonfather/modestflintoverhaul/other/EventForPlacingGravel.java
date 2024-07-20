@@ -4,6 +4,7 @@ import moonfather.modestflintoverhaul.RegistryManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
@@ -37,6 +38,7 @@ public class EventForPlacingGravel
                     {
                         event.getItemStack().shrink(1);
                     }
+                    PlayPlaceSound(event.getEntity().level(), destination, event.getEntity());
                 }
             }
             else
@@ -56,8 +58,7 @@ public class EventForPlacingGravel
                         {
                             event.getItemStack().shrink(1);
                         }
-                        SoundType soundType = Blocks.GRAVEL.getSoundType(Blocks.GRAVEL.defaultBlockState(), event.getEntity().level(), destination, null);
-                        event.getEntity().level().playSound(event.getEntity(), destination, soundType.getPlaceSound(), SoundSource.BLOCKS, (soundType.getVolume() + 1.0F) / 2.0F, soundType.getPitch() * 0.8F);
+                        PlayPlaceSound(event.getEntity().level(), destination, event.getEntity());
                         event.setCanceled(true);
                     }
                 }
@@ -71,5 +72,13 @@ public class EventForPlacingGravel
     {
         BlockState state = Blocks.GRAVEL.defaultBlockState();
         return (state.canSurvive(level, pos)) && level.getBlockState(pos).canBeReplaced();
+    }
+
+
+
+    private static void PlayPlaceSound(Level level, BlockPos location, Player entity)
+    {
+        SoundType soundType = Blocks.GRAVEL.getSoundType(Blocks.GRAVEL.defaultBlockState(), level, location, null);
+        level.playSound(entity, location, soundType.getPlaceSound(), SoundSource.BLOCKS, (soundType.getVolume() + 1.0F) / 2.0F, soundType.getPitch() * 0.8F);
     }
 }
