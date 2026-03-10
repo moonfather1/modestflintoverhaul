@@ -2,12 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "neoforge:conditions": [
     {
-      "modid": "tconstruct",
-      "type": "neoforge:mod_loaded"
+      "type": "neoforge:mod_loaded",
+      "modid": "tconstruct"
     },
     {
-      "prop": "gravel_to_flint",
-      "type": "tconstruct:config"
+      "type": "neoforge:false"
     }
   ],
   "ingredients": [
