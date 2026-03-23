@@ -1,9 +1,7 @@
 {
   "type": "farmersdelight:cutting",
   "ingredients": [
-    {
-      "tag": "modestflintoverhaul:gravel_with_maybe_flint"
-    }
+    "#modestflintoverhaul:gravel_with_maybe_flint"
   ],
   "tool": {
     "type": "farmersdelight:tool_action",
@@ -12,20 +10,21 @@
   "result": [
     {
       "id": "minecraft:gravel"
-    },
-    {
-      "id": "minecraft:flint",
-      "chance": 0.25
     }
   ],
   "neoforge:conditions": [
     {
-      "modid": "farmersdelight",
-      "type": "neoforge:mod_loaded"
+      "type": "neoforge:mod_loaded",
+      "modid": "farmersdelight"
     },
     {
       "type": "neoforge:false"
     }
-
+  ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [ "farmersdelight" ]
+    }
   ]
 }

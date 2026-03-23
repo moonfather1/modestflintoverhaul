@@ -1,15 +1,19 @@
 {
   "type": "minecraft:smelting",
-  "ingredient": {
-    "tag": "modestflintoverhaul:gravel"
-  },
+  "ingredient": "#modestflintoverhaul:gravel",
   "result": "thermal:slag",
   "experience": 0.1,
   "cookingtime": 200,
   "neoforge:conditions": [
     {
-      "modid": "thermal",
-      "type": "neoforge:mod_loaded"
+      "type": "neoforge:mod_loaded",
+      "modid": "thermal"
     }
-  ]  
+  ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [ "thermal" ]
+    }
+  ]
 }

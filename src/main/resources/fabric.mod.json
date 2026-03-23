@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "modestflintoverhaul",
+	"version": "${version}",
+	"name": "Modest Flint Overhaul",
+	"description": "Simple change to how you obtain flint: \n\nWhen you dig through gravel now, you might get some flint (odds much greater than without the mod) in addition to gravel. Or you won't get any. \n\nBut... that pile of gravel is now marked as searched - digging through it again and again and again will give you nothing. Because you searched through it already. Logical.",
+	"authors": [ "MoonFather" ],
+	"contact": {
+		"homepage": "https://www.curseforge.com/minecraft/mc-mods/modest-flint-overhaul",
+		"sources": "https://github.com/moonfather1/modestflintoverhaul"
+	},
+	"license": "MIT",
+	"icon": "assets/modestflintoverhaul/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"moonfather.modestflintoverhaul.ModestFlintOverhaul"
+		],
+		"client": [
+			"moonfather.modestflintoverhaul.ModestFlintOverhaulClient"
+		]
+	},
+	"mixins": [
+		"modestflintoverhaul.mixins.json",
+		{
+			"config": "modestflintoverhaul.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": "~26.1-",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

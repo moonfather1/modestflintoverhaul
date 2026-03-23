@@ -9,16 +9,16 @@
       "type": "neoforge:false"
     }
   ],
-  "ingredients": [
+  "fabric:load_conditions": [
     {
-      "item": "minecraft:gravel"
-    },
-    {
-      "item": "minecraft:gravel"
-    },
-    {
-      "item": "minecraft:gravel"
+      "condition": "fabric:all_mods_loaded",
+      "values": [ "tconstruct" ]
     }
+  ],
+  "ingredients": [
+    "minecraft:gravel",
+    "minecraft:gravel",
+    "minecraft:gravel"
   ],
   "result": {
     "item": "minecraft:gravel",

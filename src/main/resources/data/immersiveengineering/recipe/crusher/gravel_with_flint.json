@@ -2,16 +2,22 @@
 	"type":"immersiveengineering:crusher",
 	"secondaries":
 	[
-	{"chance":0.15,"output":{"item":"minecraft:flint"}}
+	{"chance":0.15,"output": "minecraft:flint"}
 	],
-	"result":{"item":"minecraft:sand"},
-	"input":{"tag":"modestflintoverhaul:gravel_with_maybe_flint"},
+	"result": "minecraft:sand",
+	"input": "#modestflintoverhaul:gravel_with_maybe_flint",
 	"energy":1600
   ,
-  "neoforge:conditions": [
-    {
-      "modid": "immersiveengineering",
-      "type": "neoforge:mod_loaded"
-    }
-  ]
+	"neoforge:conditions": [
+		{
+			"type": "neoforge:mod_loaded",
+			"modid": "immersiveengineering"
+		}
+	],
+	"fabric:load_conditions": [
+		{
+			"condition": "fabric:all_mods_loaded",
+			"values": [ "immersiveengineering" ]
+		}
+	]
 }

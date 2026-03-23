@@ -1,8 +1,6 @@
 {
   "type": "thermal:smelter",
-  "ingredient": {
-    "tag": "modestflintoverhaul:gravel_with_maybe_flint"
-  },
+  "ingredient": "#modestflintoverhaul:gravel_with_maybe_flint",
   "result": [
     {
       "id": "minecraft:flint",
@@ -16,8 +14,14 @@
   "experience": 0.5,
   "neoforge:conditions": [
     {
-      "modid": "thermal_expansion",
-      "type": "neoforge:mod_loaded"
+      "type": "neoforge:mod_loaded",
+      "modid": "thermal_expansion"
     }
-  ] 
+  ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [ "thermal_expansion" ]
+    }
+  ]
 }

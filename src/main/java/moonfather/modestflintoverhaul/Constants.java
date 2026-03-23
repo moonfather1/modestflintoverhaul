@@ -1,7 +1,7 @@
 package moonfather.modestflintoverhaul;
 
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.item.Item;
@@ -13,7 +13,7 @@ public class Constants
 
     public static class Tags
     {
-        public static final TagKey<Item> GravelAny = net.neoforged.neoforge.common.Tags.Items.GRAVELS;
-        public static final TagKey<Item> GravelAnyForCrafting = ItemTags.create(ResourceLocation.fromNamespaceAndPath(MODID, "gravel"));
+        public static final TagKey<Item> GravelAny = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", "gravels"));
+        public static final TagKey<Item> GravelAnyForCrafting = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, "gravel"));
     }
 }
