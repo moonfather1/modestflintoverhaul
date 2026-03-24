@@ -1,8 +1,7 @@
 package moonfather.modestflintoverhaul.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import moonfather.modestflintoverhaul.DummyConfig;
-import moonfather.modestflintoverhaul.ModestFlintOverhaul;
+import moonfather.modestflintoverhaul.ConfigManager;
 import moonfather.modestflintoverhaul.items.ItemsAndBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -127,7 +126,7 @@ public class BlockMixin2
 		else
 		{
 			generatedLoot.add(new ItemStack(Blocks.GRAVEL));
-			int howManyWeExpectPer10Gravel = (DummyConfig.BaseDropChance + DummyConfig.GetFortuneBonus(fortune)) / 10;
+			int howManyWeExpectPer10Gravel = (ConfigManager.getBaseDropChance() + ConfigManager.getFortuneBonus(fortune)) / 10;
 			int count = getCountToDrop(random, howManyWeExpectPer10Gravel);
 			////System.out.println("~~~supposed to drop " + howManyWeExpectPer10Gravel + " flint per 10 gravel, dropping " + count + ".");
 			if (count > 0)

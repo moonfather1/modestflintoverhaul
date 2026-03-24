@@ -1,9 +1,7 @@
 {
   "type": "create:crushing",
   "ingredients": [
-    {
-      "tag": "modestflintoverhaul:gravel_with_maybe_flint"
-    }
+    "#modestflintoverhaul:gravel_with_maybe_flint"
   ],
   "results": [
     {
@@ -21,8 +19,14 @@
   "processingTime": 250,
   "neoforge:conditions": [
     {
-      "modid": "create",
-      "type": "neoforge:mod_loaded"
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
     }
-  ] 
+  ],
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [ "create" ]
+    }
+  ]
 }

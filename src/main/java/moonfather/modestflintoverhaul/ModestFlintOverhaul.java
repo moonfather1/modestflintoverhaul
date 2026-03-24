@@ -16,8 +16,6 @@ public class ModestFlintOverhaul implements ModInitializer
 		ItemsAndBlocks.init();
 		// todo: neoforge - translate tags.   unstupidify config.
 		// todo: neoforge - one MI recipe has no conditions
-		// todo: fabric - should CreativeModeTabEvents.modifyOutputEvent be in client part?
-
-		//config, tooltips, recipes
+		// todo: fabric - move CreativeModeTabEvents.modifyOutputEvent into client init ?
 	}
 }

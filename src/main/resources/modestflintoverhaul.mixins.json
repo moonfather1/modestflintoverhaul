@@ -3,7 +3,6 @@
   "package": "moonfather.modestflintoverhaul.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
-    "BlockMixin",
     "BlockMixin2",
     "FallingBlockEntityMixin"
   ],
