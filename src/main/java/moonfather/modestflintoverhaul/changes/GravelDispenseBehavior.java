@@ -1,0 +1,55 @@
+package moonfather.modestflintoverhaul.changes;
+
+import moonfather.modestflintoverhaul.ConfigManager;
+import moonfather.modestflintoverhaul.items.ItemsAndBlocks;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.dispenser.BlockSource;
+import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DispenserBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
+
+public class GravelDispenseBehavior extends OptionalDispenseItemBehavior
+{
+    public static void init()
+    {
+        DispenserBlock.registerBehavior(Items.GRAVEL, new GravelDispenseBehavior(ItemsAndBlocks.BlockGravelSearched));
+        DispenserBlock.registerBehavior(ItemsAndBlocks.ItemGravelUnsearched, new GravelDispenseBehavior(Blocks.GRAVEL));
+    }
+
+    private final Block blockToPlace;
+    public GravelDispenseBehavior(Block blockToPlace)
+    {
+        this.blockToPlace = blockToPlace;
+    }
+
+
+    @Override
+    protected @NotNull ItemStack execute(BlockSource source, ItemStack stack)
+    {
+        if (! ConfigManager.shouldDispenseBlocks())
+        {
+            return super.execute(source, stack);
+        }
+        Level level = source.level();
+        BlockPos pos = source.pos().relative(source.state().getValue(DispenserBlock.FACING));
+        BlockState state = level.getBlockState(pos);
+        if (state.isAir() || state.canBeReplaced())
+        {
+            this.setSuccess(true);
+            level.setBlockAndUpdate(pos, this.blockToPlace.defaultBlockState());
+            stack.shrink(1);
+            return stack;
+        }
+        else
+        {
+            this.setSuccess(false);
+            return stack;
+        }
+    }
+}

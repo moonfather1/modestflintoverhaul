@@ -4,7 +4,11 @@
   "compatibilityLevel": "JAVA_25",
   "mixins": [
     "BlockMixin2",
-    "FallingBlockEntityMixin"
+    "FallingBlockEntityMixin",
+    "NormalCraftingRecipeAccessor",
+    "ShapedRecipeAccessor",
+    "ShapedRecipePatternAccessor",
+    "ShapelessRecipeAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
