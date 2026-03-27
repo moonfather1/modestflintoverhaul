@@ -31,7 +31,7 @@ public class GravelDispenseBehavior extends OptionalDispenseItemBehavior
     @Override
     protected @NotNull ItemStack execute(BlockSource source, ItemStack stack)
     {
-        if (! ConfigManager.ShouldDispenseBlocks())
+        if (! ConfigManager.shouldDispenseBlocks())
         {
             return super.execute(source, stack);
         }

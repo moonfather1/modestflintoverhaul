@@ -70,7 +70,7 @@ public class GravelLootModifier extends LootModifier
                 generatedLoot.add(new ItemStack(Blocks.GRAVEL));
                 Holder<Enchantment> enchantment = context.getLevel().registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE);
                 int fortune = ctxTool != null ? EnchantmentHelper.getItemEnchantmentLevel(enchantment, ctxTool) : 0;
-                int howManyWeExpectPer10Gravel = (ConfigManager.BaseDropChance + ConfigManager.GetFortuneBonus(fortune)) / 10;
+                int howManyWeExpectPer10Gravel = (ConfigManager.getBaseDropChance() + ConfigManager.getFortuneBonus(fortune)) / 10;
                 int count = GetCountToDrop(context.getRandom(), howManyWeExpectPer10Gravel);
                 ////System.out.println("~~~supposed to drop " + howManyWeExpectPer10Gravel + " flint per 10 gravel, dropping " + count + ".");
                 if (count > 0)
