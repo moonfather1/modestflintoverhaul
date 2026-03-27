@@ -1,6 +1,6 @@
 package moonfather.modestflintoverhaul.other;
 
-import moonfather.modestflintoverhaul.RegistryManager;
+import moonfather.modestflintoverhaul.items.ItemsAndBlocks;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.world.level.block.Blocks;
@@ -19,7 +19,7 @@ public class EventForItemTooltips
             event.getToolTip().add(wontHaveFlint1);
             event.getToolTip().add(wontHaveFlint2);
         }
-        if (!event.getItemStack().isEmpty() && event.getItemStack().is(RegistryManager.ItemGravelUnsearched.get()))
+        if (!event.getItemStack().isEmpty() && event.getItemStack().is(ItemsAndBlocks.ItemGravelUnsearched.get()))
         {
             event.getToolTip().add(mayHaveFlint1);
             event.getToolTip().add(mayHaveFlint2);

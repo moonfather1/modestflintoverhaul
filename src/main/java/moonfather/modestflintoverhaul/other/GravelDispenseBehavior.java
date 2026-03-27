@@ -1,7 +1,7 @@
 package moonfather.modestflintoverhaul.other;
 
 import moonfather.modestflintoverhaul.ConfigManager;
-import moonfather.modestflintoverhaul.RegistryManager;
+import moonfather.modestflintoverhaul.items.ItemsAndBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
@@ -16,10 +16,10 @@ import org.jetbrains.annotations.NotNull;
 
 public class GravelDispenseBehavior extends OptionalDispenseItemBehavior
 {
-    public static void Init()
+    public static void init()
     {
-        DispenserBlock.registerBehavior(Items.GRAVEL, new GravelDispenseBehavior(RegistryManager.BlockGravelSearched.get()));
-        DispenserBlock.registerBehavior(RegistryManager.ItemGravelUnsearched.get(), new GravelDispenseBehavior(Blocks.GRAVEL));
+        DispenserBlock.registerBehavior(Items.GRAVEL, new GravelDispenseBehavior(ItemsAndBlocks.BlockGravelSearched.get()));
+        DispenserBlock.registerBehavior(ItemsAndBlocks.ItemGravelUnsearched.get(), new GravelDispenseBehavior(Blocks.GRAVEL));
     }
 
     private final Block blockToPlace;
@@ -31,7 +31,7 @@ public class GravelDispenseBehavior extends OptionalDispenseItemBehavior
     @Override
     protected @NotNull ItemStack execute(BlockSource source, ItemStack stack)
     {
-        if (! ConfigManager.ShouldDispenseBlocks())
+        if (! ConfigManager.shouldDispenseBlocks())
         {
             return super.execute(source, stack);
         }

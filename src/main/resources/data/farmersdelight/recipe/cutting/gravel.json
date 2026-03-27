@@ -24,7 +24,7 @@
       "type": "neoforge:mod_loaded"
     },
     {
-      "type": "neoforge:false"
+      "type": "neoforge:never"
     }
 
   ]

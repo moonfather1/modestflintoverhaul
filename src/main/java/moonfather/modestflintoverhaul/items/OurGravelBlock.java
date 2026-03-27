@@ -2,28 +2,35 @@ package moonfather.modestflintoverhaul.items;
 
 import moonfather.modestflintoverhaul.Constants;
 import net.minecraft.core.BlockPos;
-import net.minecraft.util.ColorRGBA;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.material.MapColor;
 
 
 public class OurGravelBlock extends ColoredFallingBlock
 {
-    public OurGravelBlock()
+    public OurGravelBlock(ResourceKey<Block> id)
     {
-        super(Constants.GRAVEL_COLOR, BlockBehaviour.Properties.of().strength(0.6F).sound(SoundType.GRAVEL).mapColor(MapColor.STONE).instrument(NoteBlockInstrument.SNARE));
+        BlockBehaviour.Properties p = BlockBehaviour.Properties.ofFullCopy(Blocks.GRAVEL);
+        p.setId(id);
+        super(Constants.GRAVEL_COLOR, p);
     }
 
 
+    @Override
+    protected ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state, boolean includeData)
+    {
+        return Items.GRAVEL.getDefaultInstance();
+    }
 
     @Override
-    public ItemStack getCloneItemStack(LevelReader world, BlockPos pos, BlockState state)
+    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state, boolean includeData, Player player)
     {
-        return Blocks.GRAVEL.asItem().getDefaultInstance();
+        return Items.GRAVEL.getDefaultInstance();
     }
 }

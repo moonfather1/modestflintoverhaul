@@ -1,16 +1,15 @@
 package moonfather.modestflintoverhaul.drops;
 
 import com.google.common.base.Suppliers;
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import moonfather.modestflintoverhaul.ConfigManager;
-import moonfather.modestflintoverhaul.RegistryManager;
+import moonfather.modestflintoverhaul.items.ItemsAndBlocks;
 import net.minecraft.core.Holder;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.ItemInstance;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -39,7 +38,7 @@ public class GravelLootModifier extends LootModifier
     @Override
     public ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context)
     {
-        if (context.getQueriedLootTableId().equals(Blocks.GRAVEL.getLootTable().location()))
+        if (context.getQueriedLootTableId().equals(Blocks.GRAVEL.getLootTable().get().identifier()))
         {
             ListIterator<ItemStack> i = generatedLoot.listIterator();
             while (i.hasNext())
@@ -54,7 +53,7 @@ public class GravelLootModifier extends LootModifier
                     i.remove();
                 }
             }
-            ItemStack ctxTool = context.getParamOrNull(LootContextParams.TOOL);
+            ItemInstance ctxTool = context.getOptionalParameter(LootContextParams.TOOL);
             boolean silkTouch = false;
             if (ctxTool != null)
             {
@@ -63,14 +62,14 @@ public class GravelLootModifier extends LootModifier
             }
             if (silkTouch)
             {
-                generatedLoot.add(RegistryManager.ItemGravelUnsearched.get().getDefaultInstance());
+                generatedLoot.add(ItemsAndBlocks.ItemGravelUnsearched.get().getDefaultInstance());
             }
             else
             {
                 generatedLoot.add(new ItemStack(Blocks.GRAVEL));
                 Holder<Enchantment> enchantment = context.getLevel().registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE);
                 int fortune = ctxTool != null ? EnchantmentHelper.getItemEnchantmentLevel(enchantment, ctxTool) : 0;
-                int howManyWeExpectPer10Gravel = (ConfigManager.BaseDropChance + ConfigManager.GetFortuneBonus(fortune)) / 10;
+                int howManyWeExpectPer10Gravel = (ConfigManager.getBaseDropChance() + ConfigManager.getFortuneBonus(fortune)) / 10;
                 int count = GetCountToDrop(context.getRandom(), howManyWeExpectPer10Gravel);
                 ////System.out.println("~~~supposed to drop " + howManyWeExpectPer10Gravel + " flint per 10 gravel, dropping " + count + ".");
                 if (count > 0)
@@ -81,7 +80,7 @@ public class GravelLootModifier extends LootModifier
             //System.out.println("~~~~gravel, vanilla");
             return generatedLoot;
         }
-        if (context.getQueriedLootTableId().equals(RegistryManager.BlockGravelSearched.get().getLootTable()))
+        if (context.getQueriedLootTableId().equals(ItemsAndBlocks.BlockGravelSearched.get().getLootTable()))
         {
             ListIterator<ItemStack> i = generatedLoot.listIterator();
             while (i.hasNext())

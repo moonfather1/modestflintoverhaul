@@ -5,5 +5,15 @@
 	"item.modestflintoverhaul.gravel_unsearched.tooltip1": "Није детаљно претражен.",
 	"item.modestflintoverhaul.gravel_unsearched.tooltip2": "Можда ћете наћи покоји комад кремена.",
 	"item.modestflintoverhaul.gravel_searched.tooltip1": "Већ смо покупили кремен и друге ствари.",
-	"item.modestflintoverhaul.gravel_searched.tooltip2": "У овој гомили нећете наћи ништа корисно."
+	"item.modestflintoverhaul.gravel_searched.tooltip2": "У овој гомили нећете наћи ништа корисно.",
+
+	"tag.item.modestflintoverhaul.gravel": "Any gravel",
+	"tag.item.modestflintoverhaul.gravel_with_maybe_flint": "Gravel (might have flint)",
+	"tag.item.modestflintoverhaul.gravel_with_no_flint": "Gravel (with no flint)",
+
+	"modestflintoverhaul.configuration.Flint drop chance without Fortune": "Flint drop chance without Fortune",
+	"modestflintoverhaul.configuration.Flint drop chance - bonus for Fortune I": "Flint drop chance - bonus for Fortune II",
+	"modestflintoverhaul.configuration.Flint drop chance - bonus for Fortune II": "Flint drop chance - bonus for Fortune II",
+	"modestflintoverhaul.configuration.Dispenser override - enable": "Dispenser override - enable",
+	"modestflintoverhaul.configuration.Dispenser override - disable": "Dispenser override - disable"
 }

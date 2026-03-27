@@ -2,12 +2,11 @@ package moonfather.modestflintoverhaul.items;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -23,16 +22,13 @@ import javax.annotation.Nullable;
 
 public class OurGravelItem extends Item
 {
-	public OurGravelItem()
-	{
-		super(OurGravelItem.GetProperties());
-	}
-
-	private static Properties GetProperties()
+	public OurGravelItem(ResourceKey<Item> id)
 	{
 		Properties properties = new Properties();
-		return properties;
+		properties.setId(id);
+		super(properties);
 	}
+
 
 
 	@Override
@@ -65,14 +61,14 @@ public class OurGravelItem extends Item
 					if (player == null || !player.getAbilities().instabuild) {
 						itemstack.shrink(1);
 					}
-					return InteractionResult.sidedSuccess(level.isClientSide);
+					return level.isClientSide() ? InteractionResult.SUCCESS : InteractionResult.SUCCESS_SERVER;
 				}
 		}
 	}
 
 	@Nullable
 	protected BlockState getPlacementState(BlockPlaceContext p_40613_) {
-		BlockState blockstate = Blocks.GRAVEL.getStateForPlacement(p_40613_);
+		BlockState blockstate = Blocks.GRAVEL.defaultBlockState();  // can't call getStateForPlacement
 		return blockstate != null && this.canPlace(p_40613_, blockstate) ? blockstate : null;
 	}
 

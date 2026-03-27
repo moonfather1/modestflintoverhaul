@@ -6,7 +6,7 @@
       "modid": "tconstruct"
     },
     {
-      "type": "neoforge:false"
+      "type": "neoforge:never"
     }
   ],
   "ingredients": [
