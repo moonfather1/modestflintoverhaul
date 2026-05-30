@@ -1,9 +1,8 @@
 {
 	"required": true,
 	"package": "moonfather.modestflintoverhaul.mixin.client",
-	"compatibilityLevel": "JAVA_25",
+	"compatibilityLevel": "JAVA_21",
 	"client": [
-		"ExampleClientMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

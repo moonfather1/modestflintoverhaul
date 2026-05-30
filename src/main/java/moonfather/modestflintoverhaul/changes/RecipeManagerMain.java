@@ -1,7 +1,6 @@
 package moonfather.modestflintoverhaul.changes;
 
 import moonfather.modestflintoverhaul.items.ItemsAndBlocks;
-import moonfather.modestflintoverhaul.mixin.NormalCraftingRecipeAccessor;
 import moonfather.modestflintoverhaul.mixin.ShapedRecipeAccessor;
 import moonfather.modestflintoverhaul.mixin.ShapedRecipePatternAccessor;
 import moonfather.modestflintoverhaul.mixin.ShapelessRecipeAccessor;
@@ -88,7 +87,7 @@ public class RecipeManagerMain
                         }
                     }
                     ((ShapelessRecipeAccessor) shapeless).mfo$setIngredients(replacement);
-                    ((NormalCraftingRecipeAccessor) shapeless).mfo$setPlacementInfo(null);  // recipe has ingredients. and then in matches check they ignore that and take placementInfo.ingredients
+                    ((ShapelessRecipeAccessor) shapeless).mfo$setPlacementInfo(null);  // recipe has ingredients. and then in matches check they ignore that and take placementInfo.ingredients
                 }
             }
             // i could also do SingleItemRecipe but who cares?

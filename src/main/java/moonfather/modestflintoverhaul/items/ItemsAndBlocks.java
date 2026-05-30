@@ -2,8 +2,8 @@ package moonfather.modestflintoverhaul.items;
 
 import moonfather.modestflintoverhaul.Constants;
 import moonfather.modestflintoverhaul.changes.RecipeManagerMain;
-import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -23,7 +23,7 @@ public class ItemsAndBlocks
 
     public static void init()
     {
-        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register((itemGroup) -> itemGroup. accept(ItemGravelUnsearched));
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS).register((itemGroup) -> itemGroup. accept(ItemGravelUnsearched));
         ServerLifecycleEvents.SYNC_DATA_PACK_CONTENTS.register(RecipeManagerMain::beforeSync);
     }
 

@@ -1,11 +1,10 @@
 {
   "required": true,
   "package": "moonfather.modestflintoverhaul.mixin",
-  "compatibilityLevel": "JAVA_25",
+  "compatibilityLevel": "JAVA_21",
   "mixins": [
     "BlockMixin2",
     "FallingBlockEntityMixin",
-    "NormalCraftingRecipeAccessor",
     "ShapedRecipeAccessor",
     "ShapedRecipePatternAccessor",
     "ShapelessRecipeAccessor"

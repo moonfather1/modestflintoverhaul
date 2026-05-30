@@ -10,7 +10,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.item.ItemInstance;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -23,6 +22,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jspecify.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -54,10 +54,10 @@ public class BlockMixin2
 	}
 
 	@ModifyReturnValue(
-			method = "getDrops(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/entity/BlockEntity;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/item/ItemInstance;)Ljava/util/List;",
+			method = "getDrops(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/entity/BlockEntity;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/item/ItemStack;)Ljava/util/List;",
 			at = @At("RETURN")
 	)
-	private static List<ItemStack> checkDrops2(List<ItemStack> original, final BlockState state, final ServerLevel level, final BlockPos pos, @Nullable final BlockEntity blockEntity, @Nullable final Entity breaker, final ItemInstance tool)
+	private static List<ItemStack> checkDrops2(List<ItemStack> original, final BlockState state, final ServerLevel level, final BlockPos pos, @Nullable final BlockEntity blockEntity, @Nullable final Entity breaker, final ItemStack tool)
 	{
 		boolean silkTouch = false;   int fortune = 0;
         ItemEnchantments en = tool.get(DataComponents.ENCHANTMENTS);
@@ -87,7 +87,9 @@ public class BlockMixin2
 		}
 		return original;
 	}
+	@Unique
 	private static Holder<Enchantment> silkTouchHolder = null;
+	@Unique
 	private static Holder<Enchantment> fortHolder = null;
 
 	///  this changes placing vanilla gravel to place our block.
