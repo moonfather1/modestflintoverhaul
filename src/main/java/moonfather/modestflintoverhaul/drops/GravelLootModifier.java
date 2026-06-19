@@ -28,9 +28,9 @@ import java.util.function.Supplier;
 
 public class GravelLootModifier extends LootModifier
 {
-    public GravelLootModifier(LootItemCondition[] conditionsIn)
+    public GravelLootModifier(LootItemCondition[] conditionsIn, int priority)
     {
-        super(conditionsIn);
+        super(conditionsIn, priority);
     }
 
 
