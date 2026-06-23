@@ -5,6 +5,9 @@
   "mixins": [
     "BlockMixin2",
     "FallingBlockEntityMixin",
+    "LootPoolAccessor1",
+    "LootPoolAccessor2",
+    "LootPoolAccessor3",
     "ShapedRecipeAccessor",
     "ShapedRecipePatternAccessor",
     "ShapelessRecipeAccessor"
