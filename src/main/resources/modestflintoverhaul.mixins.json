@@ -6,9 +6,6 @@
     "BlockMixin2",
     "FallingBlockEntityMixin",
     "NormalCraftingRecipeAccessor",
-    "LootPoolAccessor1",
-    "LootPoolAccessor2",
-    "LootPoolAccessor3",
     "ShapedRecipeAccessor",
     "ShapedRecipePatternAccessor",
     "ShapelessRecipeAccessor"

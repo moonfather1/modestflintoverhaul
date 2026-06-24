@@ -1,7 +1,7 @@
 package moonfather.modestflintoverhaul;
 
 import moonfather.modestflintoverhaul.changes.GravelDispenseBehavior;
-import moonfather.modestflintoverhaul.changes.PiglinBarterTableModifier;
+import moonfather.modestflintoverhaul.changes.PiglinBarterDropModifier;
 import moonfather.modestflintoverhaul.items.ItemsAndBlocks;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -19,6 +19,6 @@ public class ModestFlintOverhaul implements ModInitializer
 		// todo: neoforge - translate tags.   unstupidify config.
 		// todo: neoforge - one MI recipe has no conditions
 		// todo: fabric - move CreativeModeTabEvents.modifyOutputEvent into client init ?
-		PiglinBarterTableModifier.init();
+		PiglinBarterDropModifier.init();
 	}
 }
