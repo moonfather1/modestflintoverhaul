@@ -1,14 +1,12 @@
 package moonfather.modestflintoverhaul.drops;
 
 import com.google.common.base.Suppliers;
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import moonfather.modestflintoverhaul.ConfigManager;
 import moonfather.modestflintoverhaul.RegistryManager;
 import net.minecraft.core.Holder;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
@@ -81,7 +79,7 @@ public class GravelLootModifier extends LootModifier
             //System.out.println("~~~~gravel, vanilla");
             return generatedLoot;
         }
-        if (context.getQueriedLootTableId().equals(RegistryManager.BlockGravelSearched.get().getLootTable()))
+        if (context.getQueriedLootTableId().equals(RegistryManager.BlockGravelSearched.get().getLootTable().location()))
         {
             ListIterator<ItemStack> i = generatedLoot.listIterator();
             while (i.hasNext())

@@ -2,6 +2,7 @@ package moonfather.modestflintoverhaul;
 
 import com.mojang.serialization.MapCodec;
 import moonfather.modestflintoverhaul.drops.GravelLootModifier;
+import moonfather.modestflintoverhaul.drops.PiglinLootModifier;
 import moonfather.modestflintoverhaul.falling_onto_trapdoors.ElusiveGravelBlock;
 import moonfather.modestflintoverhaul.falling_onto_trapdoors.FleetingGravelBlock;
 import moonfather.modestflintoverhaul.items.OurGravelBlock;
@@ -39,4 +40,5 @@ public class RegistryManager
 	public static final DeferredHolder<Block, Block> BlockGravelElusive = BLOCKS.register("gravel_temporary2", ElusiveGravelBlock::new);
 
 	public static final Supplier<MapCodec<? extends IGlobalLootModifier>> StupidGLMSerializer1 = LOOT_MODIFIERS.register("loot_modifier_for_gravel", GravelLootModifier.CODEC);
+	public static final Supplier<MapCodec<? extends IGlobalLootModifier>> StupidGLMSerializer2 = LOOT_MODIFIERS.register("loot_modifier_for_piglins", PiglinLootModifier.CODEC);
 }
