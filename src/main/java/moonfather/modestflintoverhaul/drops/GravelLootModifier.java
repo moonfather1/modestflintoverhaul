@@ -71,7 +71,7 @@ public class GravelLootModifier extends LootModifier
                 int fortune = ctxTool != null ? EnchantmentHelper.getItemEnchantmentLevel(enchantment, ctxTool) : 0;
                 int howManyWeExpectPer10Gravel = (ConfigManager.getBaseDropChance() + ConfigManager.getFortuneBonus(fortune)) / 10;
                 int count = GetCountToDrop(context.getRandom(), howManyWeExpectPer10Gravel);
-                ////System.out.println("~~~supposed to drop " + howManyWeExpectPer10Gravel + " flint per 10 gravel, dropping " + count + ".");
+                //System.out.println("~~~supposed to drop " + howManyWeExpectPer10Gravel + " flint per 10 gravel, dropping " + count + ".");
                 if (count > 0)
                 {
                     generatedLoot.add(new ItemStack(Items.FLINT, count));
@@ -80,7 +80,7 @@ public class GravelLootModifier extends LootModifier
             //System.out.println("~~~~gravel, vanilla");
             return generatedLoot;
         }
-        if (context.getQueriedLootTableId().equals(ItemsAndBlocks.BlockGravelSearched.get().getLootTable()))
+        if (context.getQueriedLootTableId().equals(ItemsAndBlocks.BlockGravelSearched.get().getLootTable().get().identifier()))
         {
             ListIterator<ItemStack> i = generatedLoot.listIterator();
             while (i.hasNext())

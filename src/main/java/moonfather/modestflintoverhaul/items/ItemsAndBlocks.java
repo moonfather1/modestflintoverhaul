@@ -3,6 +3,7 @@ package moonfather.modestflintoverhaul.items;
 import com.mojang.serialization.MapCodec;
 import moonfather.modestflintoverhaul.Constants;
 import moonfather.modestflintoverhaul.drops.GravelLootModifier;
+import moonfather.modestflintoverhaul.drops.PiglinLootModifier;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
@@ -38,4 +39,5 @@ public class ItemsAndBlocks
 	//public static final RegistryObject<Item> ItemBlockGravelSearched = ITEMS.register("gravel_searched", () -> BlockItemEx.Create(BlockGravelSearched.get(), GravelBlock.GetItemProperties()).AppendTooltipLine(GravelBlock.TooltipLine1));
 
 	public static final Supplier<MapCodec<? extends IGlobalLootModifier>> StupidGLMSerializer1 = LOOT_MODIFIERS.register("loot_modifier_for_gravel", GravelLootModifier.CODEC);
+	public static final Supplier<MapCodec<? extends IGlobalLootModifier>> StupidGLMSerializer2 = LOOT_MODIFIERS.register("loot_modifier_for_piglins", PiglinLootModifier.CODEC);
 }
