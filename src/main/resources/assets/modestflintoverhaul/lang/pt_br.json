@@ -1,0 +1,13 @@
+{
+	"item.modestflintoverhaul.gravel_unsearched": "Cascalho",
+	"block.modestflintoverhaul.gravel_searched": "Cascalho",
+
+	"item.modestflintoverhaul.gravel_unsearched.tooltip1": "Não vasculhado inteiramente.",
+	"item.modestflintoverhaul.gravel_unsearched.tooltip2": "Você talvez encontre um Sílex ou dois.",
+	"item.modestflintoverhaul.gravel_searched.tooltip1": "Já foi vasculhado por Sílex e outras coisas.",
+	"item.modestflintoverhaul.gravel_searched.tooltip2": "Você não encontrará nada útil nessa pilha."
+
+	"tag.item.modestflintoverhaul.gravel": "Any gravel",
+	"tag.item.modestflintoverhaul.gravel_with_maybe_flint": "Gravel (might have flint)",
+	"tag.item.modestflintoverhaul.gravel_with_no_flint": "Gravel (with no flint)"
+}
